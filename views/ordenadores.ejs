@@ -1,0 +1,31 @@
+<%- include ("template/cabezera.ejs",{tituloweb:"Panel de administracion"})%>
+
+<div class="container">
+    Ordenadores
+</div>
+<div class="container">
+  <h1>crear Ordenadores</h1>
+  <a href="/ordenadores/crear" class="btn btn-success btn-block my-4">Ordenadores</a>
+</div>
+
+<table class="table">
+    
+    <tbody>
+        <% if(arrayordenadores.length>0){%>
+            <%arrayordenadores.forEach(ordenadores=>{%>
+      <tr>
+        <th scope="row"><%=ordenadores.id%></th>
+        <td><%=ordenadores.nombre%></td>
+        <td><%=ordenadores.fabricante%></td>
+        <td><%=ordenadores.año%></td>
+        <td><%=ordenadores.so%></td>
+        <td><%=ordenadores.ram%></td>
+        <td><a href="/ordenadores/<%= ordenadores._id %>" class="btn btn-warning btn-sm">Editar/eliminar</a></td>
+        <% })}%>
+      </tr>
+      
+    </tbody>
+  
+  </table>
+<%- include ("template/footer.ejs")%>
+
